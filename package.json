@@ -1,0 +1,19 @@
+{
+  "name": "thedog",
+  "version": "1.0.0",
+  "description": "Web site about dog lovers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass --watch dist/scss -o dist/css"
+  },
+  "keywords": [
+    "dog"
+  ],
+  "author": "darevski",
+  "license": "ISC",
+  "dependencies": {
+    "hover.css": "^2.3.2",
+    "node-sass": "^4.13.1"
+  }
+}
