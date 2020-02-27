@@ -1,0 +1,19 @@
+@mixin center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@mixin h2 {
+  font-size: 3rem;
+  text-align: center;
+  font-weight: normal;
+  padding-bottom: 30px;
+}
+@mixin pcenter {
+  font-size: 1.4rem;
+  text-align: center;
+}
+@mixin container {
+  width: 80%;
+  margin: 0px auto;
+}

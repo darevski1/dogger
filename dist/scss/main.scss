@@ -1,6 +1,6 @@
 @import "colors";
 @import "button";
-
+@import "config";
 * {
   margin: 0;
 }
@@ -8,7 +8,29 @@
 body {
   font-family: "PT Sans";
 }
+header {
+  @include container;
+  nav {
+    display: flex;
+    height: 90px;
+    justify-content: right;
 
+    ul li {
+      list-style: none;
+      align-items: center;
+      display: flex;
+      height: 90px;
+    }
+    a {
+      color: $p_green;
+      text-decoration: none;
+      font-weight: bold;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
 .intro-heding {
   width: 100%;
   height: 600px;
@@ -16,12 +38,9 @@ body {
   background-color: $intro-bg;
   background-repeat: no-repeat;
   background-position: right;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include center;
   .text-heading {
-    width: 80%;
-    margin: 0px auto;
+    @include container;
 
     h1 {
       font-size: 4rem;
@@ -36,7 +55,7 @@ body {
   padding: 120px 120px;
   h2 {
     text-align: center;
-    font-size: 2.3rem;
+    font-size: 3rem;
     font-weight: 400;
     padding-bottom: 10px;
     text-transform: uppercase;
@@ -48,8 +67,9 @@ body {
   }
 }
 .level-block {
-  width: 80%;
-  margin: 0px auto;
+  @include container;
+
+  padding-bottom: 100px;
   display: flex;
   flex-direction: row;
   .row {
@@ -69,7 +89,7 @@ body {
         text-align: left;
         padding-left: 10%;
         padding-left: 120px;
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         font-weight: 100;
         color: $p-text;
         padding-top: 30px;
@@ -94,14 +114,19 @@ body {
 
     img {
       padding: 0;
+      z-index: 1;
     }
   }
 }
+.section-grey {
+  background: #f4f4f4;
+  padding: 100px;
+}
 .about-block {
-  width: 80%;
-  margin: 0px auto;
+  @include container;
+
   display: flex;
-  margin-top: 90px;
+
   .row {
     flex-shrink: 1;
     width: 50%;
@@ -137,24 +162,244 @@ body {
 }
 .trainers {
   background: $main-color;
-  display: flex;
+  padding-bottom: 40px;
+  justify-content: space-between;
+
   .text-heading {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px 30px;
+    padding: 50px 30px;
+    .fa-paw {
+      font-size: 3rem;
+      color: #fff;
+    }
     h2 {
-      font-size: 2.5rem;
-      text-transform: uppercase;
+      @include h2;
+      color: $p_green;
     }
     p {
       text-align: center;
       font-size: 1.4rem;
-      color: $p-text;
+      color: $p_green;
     }
   }
-  .col {
+
+  .traings-row {
     display: flex;
-    flex-direction: column;
+    @include container;
+
+    position: relative;
+
+    .col {
+      flex: 1;
+      margin: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      h3 {
+        padding-top: 30px;
+        padding-bottom: 20px;
+        font-size: 2rem;
+        color: #ffffff;
+      }
+      p {
+        padding: 20px;
+        font-size: 1.4rem;
+        color: $p_green;
+      }
+      img {
+        width: 100%;
+        height: auto;
+      }
+      img:hover {
+        opacity: 0.5;
+      }
+      .icons {
+        padding-top: 20px;
+        ul li {
+          list-style: none;
+          display: inline-block;
+          width: 40px;
+          height: 40px;
+          border: 1px solid $p_green;
+          background: #ffffff;
+          margin: 5px;
+          border-radius: 100%;
+          cursor: pointer;
+          :hover {
+            background-color: $p-text;
+            border-radius: 100%;
+            transition: background-color 2s;
+          }
+          a {
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+      }
+    }
+  }
+}
+.pricing-t {
+  @include container;
+
+  padding-top: 50px;
+  padding-bottom: 50px;
+  h2 {
+    @include h2;
+  }
+  p {
+    @include pcenter;
+  }
+  .row-block-items {
+    display: flex;
+    flex-direction: row;
+    .block {
+      margin-top: 50px;
+      flex: 1;
+      text-align: center;
+      padding: 25px;
+      background: $main-color;
+
+      h3 {
+        font-size: 3rem;
+        font-weight: normal;
+      }
+
+      ul li {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.2rem;
+      }
+    }
+    .block:nth-child(2) {
+      background: #343a40;
+      color: #ffffff;
+    }
+  }
+}
+
+.petpaw {
+  font-size: 1.2rem;
+  color: $p_green;
+}
+.faq {
+  h2 {
+    @include center;
+    @include h2;
+  }
+  p {
+    @include pcenter;
+  }
+  .inline {
+    display: flex;
+    flex-direction: row;
+    @include container;
+
+    .block-l {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      width: 50%;
+      flex-shrink: 1;
+      padding: 50px;
+    }
+    .text-heading {
+      h2 {
+        @include h2;
+      }
+      p {
+        text-align: left;
+        font-size: 1.2rem;
+        font-weight: inherit;
+        padding-top: 20px;
+        color: $p-text;
+        display: none;
+      }
+    }
+  }
+}
+.section-cs {
+  background-color: #f8f9fa;
+}
+.customers {
+  @include center;
+  @include container;
+  padding-top: 70px;
+  flex-direction: column;
+  h2 {
+    @include h2;
+  }
+  p {
+    @include pcenter;
+    padding-bottom: 50px;
+  }
+}
+.galery {
+  background-color: #f8f9fa;
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+  .img-line {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.user-mood {
+  padding: 20px;
+  align-items: center;
+  text-align: center;
+  h3 {
+    color: $p_green;
+  }
+  .main-txt {
+    @include center;
+    width: 250px;
+    height: 250px;
+    background: $main-color;
+    border-radius: 20px;
+    padding: 30px;
+    -webkit-box-shadow: 7px 7px 9px 0px rgba(219, 219, 219, 1);
+    -moz-box-shadow: 7px 7px 9px 0px rgba(219, 219, 219, 1);
+    box-shadow: 7px 7px 9px 0px rgba(219, 219, 219, 1);
+
+    p {
+      color: black;
+      letter-spacing: 3px;
+      font-style: italic;
+      line-height: 2em;
+    }
+  }
+  .arow {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+
+    border-top: 20px solid #a2c0be;
+    margin: 0px auto;
+  }
+  .csbs {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    img {
+      margin-top: 30px;
+      border: 7px solid $main-color;
+      max-height: 100%;
+      max-width: 100%;
+      -moz-border-radius: 50%;
+      -webkit-border-radius: 50%;
+    }
   }
 }
