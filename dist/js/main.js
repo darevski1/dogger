@@ -1,5 +1,11 @@
-const pfaq = document.querySelector('faq');
+$(document).ready(function () {
+    $(".faqs").hide();
+    $(".h33").click(function () {
+        var ids = $(this).attr('data-id');
 
-let showFaq = addEventListener('click', toggle);
+        $('data-p=' + ids).toggle();
 
-function toggle() { }
+    });
+
+
+});
